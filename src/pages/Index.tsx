@@ -4,6 +4,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +18,14 @@ const Index = () => {
     phone: '',
     message: ''
   });
+
+  const equipmentCategories = [
+    { name: 'Канализационные решетки', id: 'category-1' },
+    { name: 'Решетки-Дробилки', id: 'category-2' },
+    { name: 'Вспомогательное оборудование', id: 'category-3' },
+    { name: 'Доочистка сточных вод', id: 'category-4' },
+    { name: 'Оборудование для отстойников', id: 'category-5' }
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,13 +47,28 @@ const Index = () => {
             </div>
             <span className="text-2xl font-bold text-secondary">ФЕНИКС</span>
           </div>
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex gap-8 items-center">
             <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors font-medium">
               Главная
             </button>
-            <button onClick={() => scrollToSection('equipment')} className="text-foreground hover:text-primary transition-colors font-medium">
-              Оборудование
-            </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-1">
+                Каталог оборудования
+                <Icon name="ChevronDown" size={16} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-64">
+                {equipmentCategories.map((category) => (
+                  <DropdownMenuItem
+                    key={category.id}
+                    onClick={() => scrollToSection('equipment')}
+                    className="cursor-pointer py-3"
+                  >
+                    <Icon name="ArrowRight" size={16} className="mr-2 text-primary" />
+                    {category.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <button onClick={() => scrollToSection('contacts')} className="text-foreground hover:text-primary transition-colors font-medium">
               Контакты
             </button>
