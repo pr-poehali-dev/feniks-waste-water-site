@@ -333,6 +333,17 @@ const Index = () => {
                     />
                   </div>
 
+                  <div className="text-xs text-muted-foreground">
+                    Нажимая "Отправить заявку", вы соглашаетесь с{' '}
+                    <button 
+                      type="button"
+                      onClick={() => navigate('/privacy')}
+                      className="text-primary hover:underline"
+                    >
+                      Политикой обработки персональных данных
+                    </button>
+                  </div>
+
                   {isSuccess ? (
                     <div className="text-center py-4">
                       <div className="inline-flex items-center gap-2 text-green-600 font-semibold">
@@ -416,6 +427,12 @@ const Index = () => {
 
           <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/60">
             <p>© 2024 ООО "ФЕНИКС". Все права защищены.</p>
+            <button 
+              onClick={() => navigate('/privacy')} 
+              className="mt-2 text-white/60 hover:text-white transition-colors underline text-sm"
+            >
+              Политика обработки персональных данных
+            </button>
           </div>
         </div>
       </footer>

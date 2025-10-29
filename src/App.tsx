@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
 import CanalizationGrates from "./pages/equipment/CanalizationGrates";
 import Grinders from "./pages/equipment/Grinders";
 import AuxiliaryEquipment from "./pages/equipment/AuxiliaryEquipment";
@@ -22,6 +23,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/equipment/canalization-grates" element={<CanalizationGrates />} />
           <Route path="/equipment/grinders" element={<Grinders />} />
           <Route path="/equipment/auxiliary" element={<AuxiliaryEquipment />} />

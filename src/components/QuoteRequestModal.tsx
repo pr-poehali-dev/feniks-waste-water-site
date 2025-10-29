@@ -235,6 +235,13 @@ export default function QuoteRequestModal({ isOpen, onClose, equipmentName }: Qu
               </p>
             </div>
 
+            <div className="text-xs text-muted-foreground">
+              Нажимая "Отправить заявку", вы соглашаетесь с{' '}
+              <a href="/privacy" target="_blank" className="text-primary hover:underline">
+                Политикой обработки персональных данных
+              </a>
+            </div>
+
             <div className="flex gap-3 pt-4">
               <Button
                 type="button"
