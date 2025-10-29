@@ -165,7 +165,7 @@ const Index = () => {
             {[
               { icon: 'Award', title: '15+ лет', description: 'На рынке водоочистки' },
               { icon: 'Users', title: '500+', description: 'Довольных клиентов' },
-              { icon: 'CheckCircle2', title: '99%', description: 'Качество продукции' },
+              { icon: 'CheckCircle2', title: '100%', description: 'Качество продукции' },
               { icon: 'Headphones', title: '24/7', description: 'Техническая поддержка' }
             ].map((item, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
