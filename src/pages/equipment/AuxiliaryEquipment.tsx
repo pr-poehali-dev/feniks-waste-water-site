@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
 import QuoteRequestModal from '@/components/QuoteRequestModal';
+import MainNav from '@/components/MainNav';
 
 const AuxiliaryEquipment = () => {
   const navigate = useNavigate();
@@ -80,20 +81,7 @@ const AuxiliaryEquipment = () => {
 
   return (
     <div className="min-h-screen">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <button onClick={() => navigate('/')} className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-              <Icon name="Droplets" size={24} className="text-white" />
-            </div>
-            <span className="text-2xl font-bold text-secondary">ФЕНИКС</span>
-          </button>
-          <Button onClick={() => navigate('/')} variant="outline">
-            <Icon name="ArrowLeft" size={16} className="mr-2" />
-            Назад
-          </Button>
-        </div>
-      </nav>
+      <MainNav />
 
       <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-background via-muted to-background">
         <div className="container mx-auto">

@@ -5,17 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from '@/components/ui/sheet';
+import MainNav from '@/components/MainNav';
 import { FUNCTION_URLS } from '@/config/functions';
 
 const Index = () => {
@@ -29,15 +19,6 @@ const Index = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const equipmentCategories = [
-    { name: 'Канализационные решетки', id: 'category-1', path: '/equipment/canalization-grates' },
-    { name: 'Решетки-Дробилки', id: 'category-2', path: '/equipment/grinders' },
-    { name: 'Вспомогательное оборудование', id: 'category-3', path: '/equipment/auxiliary' },
-    { name: 'Доочистка сточных вод', id: 'category-4', path: '/equipment/water-treatment' },
-    { name: 'Оборудование для отстойников', id: 'category-5', path: '/equipment/settlers' }
-  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -100,84 +81,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-              <Icon name="Droplets" size={24} className="text-white" />
-            </div>
-            <span className="text-2xl font-bold text-secondary">ФЕНИКС</span>
-          </div>
-          <div className="hidden md:flex gap-8 items-center">
-            <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors font-medium">
-              Главная
-            </button>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-1">
-                Каталог оборудования
-                <Icon name="ChevronDown" size={16} />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-64">
-                {equipmentCategories.map((category) => (
-                  <DropdownMenuItem
-                    key={category.id}
-                    onClick={() => navigate(category.path)}
-                    className="cursor-pointer py-3"
-                  >
-                    <Icon name="ArrowRight" size={16} className="mr-2 text-primary" />
-                    {category.name}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <button onClick={() => scrollToSection('contacts')} className="text-foreground hover:text-primary transition-colors font-medium">
-              Контакты
-            </button>
-          </div>
-          <Button onClick={() => scrollToSection('contacts')} className="hidden md:flex">
-            Связаться с нами
-          </Button>
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Icon name="Menu" size={24} />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col gap-6 mt-8">
-                <button 
-                  onClick={() => { scrollToSection('home'); setIsMobileMenuOpen(false); }} 
-                  className="text-left text-lg font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  Главная
-                </button>
-                <div className="flex flex-col gap-3">
-                  <span className="text-lg font-medium text-foreground">Каталог оборудования</span>
-                  {equipmentCategories.map((category) => (
-                    <button
-                      key={category.id}
-                      onClick={() => { navigate(category.path); setIsMobileMenuOpen(false); }}
-                      className="text-left pl-4 py-2 text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
-                    >
-                      <Icon name="ArrowRight" size={16} className="text-primary" />
-                      {category.name}
-                    </button>
-                  ))}
-                </div>
-                <button 
-                  onClick={() => { scrollToSection('contacts'); setIsMobileMenuOpen(false); }} 
-                  className="text-left text-lg font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  Контакты
-                </button>
-                <Button onClick={() => { scrollToSection('contacts'); setIsMobileMenuOpen(false); }} className="mt-4">
-                  Связаться с нами
-                </Button>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </nav>
+      <MainNav />
 
       <section id="home" className="pt-32 pb-20 px-4 bg-gradient-to-br from-background via-muted to-background">
         <div className="container mx-auto">
