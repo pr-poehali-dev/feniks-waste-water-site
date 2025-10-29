@@ -15,8 +15,7 @@ const Grinders = () => {
         grindingSize: 'До 6 мм',
         power: '3 кВт',
         material: 'Нержавеющая сталь AISI 304'
-      },
-      price: 'От 340 000 ₽'
+      }
     },
     {
       name: 'Решетка-дробилка РД-800',
@@ -26,8 +25,7 @@ const Grinders = () => {
         grindingSize: 'До 8 мм',
         power: '5.5 кВт',
         material: 'Нержавеющая сталь AISI 316'
-      },
-      price: 'От 580 000 ₽'
+      }
     },
     {
       name: 'Решетка-дробилка РД-1500',
@@ -37,8 +35,7 @@ const Grinders = () => {
         grindingSize: 'До 10 мм',
         power: '11 кВт',
         material: 'Нержавеющая сталь AISI 316L'
-      },
-      price: 'От 920 000 ₽'
+      }
     },
     {
       name: 'Решетка-дробилка РД-3000 Pro',
@@ -48,8 +45,7 @@ const Grinders = () => {
         grindingSize: 'До 12 мм',
         power: '18.5 кВт',
         material: 'Специальная сталь с упрочнением'
-      },
-      price: 'От 1 450 000 ₽'
+      }
     }
   ];
 
@@ -125,12 +121,8 @@ const Grinders = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t">
-                    <div>
-                      <p className="text-sm text-muted-foreground">Цена</p>
-                      <p className="text-2xl font-bold text-primary">{model.price}</p>
-                    </div>
-                    <Button>Запросить КП</Button>
+                  <div className="pt-4 border-t">
+                    <Button className="w-full">Запросить КП</Button>
                   </div>
                 </CardContent>
               </Card>

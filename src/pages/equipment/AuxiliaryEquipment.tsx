@@ -15,8 +15,7 @@ const AuxiliaryEquipment = () => {
         monitoring: 'Web-интерфейс, мобильное приложение',
         sensors: 'pH, кислород, взвеси',
         connection: 'Ethernet, Wi-Fi, 4G'
-      },
-      price: 'От 285 000 ₽'
+      }
     },
     {
       name: 'Насосная станция НС-50',
@@ -26,8 +25,7 @@ const AuxiliaryEquipment = () => {
         head: '10-30 метров',
         power: '7.5-15 кВт',
         material: 'Чугун с защитным покрытием'
-      },
-      price: 'От 175 000 ₽'
+      }
     },
     {
       name: 'Компрессорная установка КУ-100',
@@ -37,8 +35,7 @@ const AuxiliaryEquipment = () => {
         pressure: '0.5-1.2 бар',
         power: '11-22 кВт',
         noise: 'Менее 75 дБ'
-      },
-      price: 'От 420 000 ₽'
+      }
     },
     {
       name: 'Дозирующая станция ДС-20',
@@ -48,8 +45,7 @@ const AuxiliaryEquipment = () => {
         tanks: '2-4 емкости по 500л',
         accuracy: '±1%',
         control: 'Автоматический по pH/Redox'
-      },
-      price: 'От 195 000 ₽'
+      }
     },
     {
       name: 'КИПиА комплект К-01',
@@ -59,8 +55,7 @@ const AuxiliaryEquipment = () => {
         transmitters: 'Аналоговые 4-20мА',
         display: 'Цифровой дисплей',
         calibration: 'Автоматическая калибровка'
-      },
-      price: 'От 145 000 ₽'
+      }
     },
     {
       name: 'Смеситель вертикальный СВ-30',
@@ -70,8 +65,7 @@ const AuxiliaryEquipment = () => {
         power: '2.2-5.5 кВт',
         speed: '200-400 об/мин',
         material: 'Нержавеющая сталь'
-      },
-      price: 'От 125 000 ₽'
+      }
     }
   ];
 
@@ -124,12 +118,8 @@ const AuxiliaryEquipment = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t">
-                    <div>
-                      <p className="text-sm text-muted-foreground">Цена</p>
-                      <p className="text-2xl font-bold text-primary">{model.price}</p>
-                    </div>
-                    <Button>Запросить КП</Button>
+                  <div className="pt-4 border-t">
+                    <Button className="w-full">Запросить КП</Button>
                   </div>
                 </CardContent>
               </Card>

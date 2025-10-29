@@ -15,8 +15,7 @@ const WaterTreatment = () => {
         power: '40 ламп по 150Вт',
         efficiency: '99.99% инактивация',
         lifetime: 'Лампы 12000 часов'
-      },
-      price: 'От 385 000 ₽'
+      }
     },
     {
       name: 'Мембранный модуль ММ-50',
@@ -26,8 +25,7 @@ const WaterTreatment = () => {
         membrane: 'Половолоконная UF',
         poreSize: '0.01-0.1 мкм',
         recovery: '95-98%'
-      },
-      price: 'От 620 000 ₽'
+      }
     },
     {
       name: 'Сорбционный фильтр СФ-100',
@@ -37,8 +35,7 @@ const WaterTreatment = () => {
         sorbent: 'Активированный уголь',
         volume: '2-4 м³ загрузки',
         regeneration: 'Обратной промывкой'
-      },
-      price: 'От 265 000 ₽'
+      }
     },
     {
       name: 'Озонаторная установка ОУ-30',
@@ -48,8 +45,7 @@ const WaterTreatment = () => {
         power: '3.5 кВт',
         cooling: 'Водяное охлаждение',
         control: 'Автоматическое дозирование'
-      },
-      price: 'От 445 000 ₽'
+      }
     }
   ];
 
@@ -102,12 +98,8 @@ const WaterTreatment = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t">
-                    <div>
-                      <p className="text-sm text-muted-foreground">Цена</p>
-                      <p className="text-2xl font-bold text-primary">{model.price}</p>
-                    </div>
-                    <Button>Запросить КП</Button>
+                  <div className="pt-4 border-t">
+                    <Button className="w-full">Запросить КП</Button>
                   </div>
                 </CardContent>
               </Card>

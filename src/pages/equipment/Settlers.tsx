@@ -15,8 +15,7 @@ const Settlers = () => {
         depth: '3-5 метров',
         speed: '1-3 об/час',
         drive: 'Центральный электропривод 1.5кВт'
-      },
-      price: 'От 485 000 ₽'
+      }
     },
     {
       name: 'Скребковый механизм СМ-40',
@@ -26,8 +25,7 @@ const Settlers = () => {
         width: '4-8 метров',
         speed: '0.5-2 м/мин',
         drive: 'Цепной привод 2.2кВт'
-      },
-      price: 'От 560 000 ₽'
+      }
     },
     {
       name: 'Жироуловитель ЖУ-10',
@@ -37,8 +35,7 @@ const Settlers = () => {
         volume: '3 м³',
         efficiency: '95% удаления жиров',
         material: 'Нержавеющая сталь'
-      },
-      price: 'От 145 000 ₽'
+      }
     },
     {
       name: 'Нефтеловушка НЛ-20',
@@ -48,8 +45,7 @@ const Settlers = () => {
         volume: '5 м³',
         efficiency: 'До 0.05 мг/л нефтепродуктов',
         material: 'Стеклопластик'
-      },
-      price: 'От 195 000 ₽'
+      }
     },
     {
       name: 'Тонкослойный модуль ТМ-50',
@@ -59,8 +55,7 @@ const Settlers = () => {
         angle: '60 градусов',
         material: 'Полипропилен',
         mounting: 'Модульная конструкция'
-      },
-      price: 'От 125 000 ₽'
+      }
     },
     {
       name: 'Система сбора плавающих веществ СП-15',
@@ -70,8 +65,7 @@ const Settlers = () => {
         capacity: '5-20 м³/час',
         material: 'Нержавеющая сталь',
         drive: 'Электропривод 0.75кВт'
-      },
-      price: 'От 165 000 ₽'
+      }
     }
   ];
 
@@ -124,12 +118,8 @@ const Settlers = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t">
-                    <div>
-                      <p className="text-sm text-muted-foreground">Цена</p>
-                      <p className="text-2xl font-bold text-primary">{model.price}</p>
-                    </div>
-                    <Button>Запросить КП</Button>
+                  <div className="pt-4 border-t">
+                    <Button className="w-full">Запросить КП</Button>
                   </div>
                 </CardContent>
               </Card>

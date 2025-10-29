@@ -15,8 +15,7 @@ const CanalizationGrates = () => {
         cellSize: '10-20 мм',
         material: 'Нержавеющая сталь AISI 304',
         cleaning: 'Ручная очистка'
-      },
-      price: 'От 95 000 ₽'
+      }
     },
     {
       name: 'Решетка автоматическая РА-500',
@@ -26,8 +25,7 @@ const CanalizationGrates = () => {
         cellSize: '6-16 мм',
         material: 'Нержавеющая сталь AISI 316',
         cleaning: 'Автоматическая с электроприводом'
-      },
-      price: 'От 285 000 ₽'
+      }
     },
     {
       name: 'Решетка ступенчатая РС-1000',
@@ -37,8 +35,7 @@ const CanalizationGrates = () => {
         cellSize: '3-10 мм',
         material: 'Нержавеющая сталь AISI 316L',
         cleaning: 'Автоматическая непрерывная'
-      },
-      price: 'От 520 000 ₽'
+      }
     },
     {
       name: 'Решетка барабанная РБ-300',
@@ -48,8 +45,7 @@ const CanalizationGrates = () => {
         cellSize: '1-6 мм',
         material: 'Нержавеющая сталь с полимерным покрытием',
         cleaning: 'Самоочищающаяся конструкция'
-      },
-      price: 'От 410 000 ₽'
+      }
     }
   ];
 
@@ -125,12 +121,8 @@ const CanalizationGrates = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t">
-                    <div>
-                      <p className="text-sm text-muted-foreground">Цена</p>
-                      <p className="text-2xl font-bold text-primary">{model.price}</p>
-                    </div>
-                    <Button>Запросить КП</Button>
+                  <div className="pt-4 border-t">
+                    <Button className="w-full">Запросить КП</Button>
                   </div>
                 </CardContent>
               </Card>
