@@ -14,6 +14,7 @@ const WaterTreatment = () => {
     {
       name: 'УФ-установка УФ-200',
       description: 'Ультрафиолетовая установка для обеззараживания очищенных сточных вод без применения химии',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/36afda1f-7807-4bdd-9c51-20d715c3e309.jpg',
       specs: {
         capacity: '200 м³/ч',
         power: '40 ламп по 150Вт',
@@ -24,6 +25,7 @@ const WaterTreatment = () => {
     {
       name: 'Мембранный модуль ММ-50',
       description: 'Модуль ультра- и нанофильтрации для глубокой доочистки с удалением микрозагрязнений',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/36afda1f-7807-4bdd-9c51-20d715c3e309.jpg',
       specs: {
         capacity: '50 м³/сут',
         membrane: 'Половолоконная UF',
@@ -34,6 +36,7 @@ const WaterTreatment = () => {
     {
       name: 'Сорбционный фильтр СФ-100',
       description: 'Угольный фильтр для удаления органических загрязнений, хлора и неприятных запахов',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/36afda1f-7807-4bdd-9c51-20d715c3e309.jpg',
       specs: {
         capacity: '100 м³/сут',
         sorbent: 'Активированный уголь',
@@ -44,6 +47,7 @@ const WaterTreatment = () => {
     {
       name: 'Озонаторная установка ОУ-30',
       description: 'Система озонирования для глубокого окисления органики и обесцвечивания воды',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/36afda1f-7807-4bdd-9c51-20d715c3e309.jpg',
       specs: {
         ozone: '30 г/час',
         power: '3.5 кВт',
@@ -85,7 +89,14 @@ const WaterTreatment = () => {
 
           <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {models.map((model, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-video w-full bg-muted overflow-hidden">
+                  <img 
+                    src={model.image} 
+                    alt={model.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl">{model.name}</CardTitle>
                   <CardDescription className="text-base">{model.description}</CardDescription>

@@ -14,6 +14,7 @@ const Grinders = () => {
     {
       name: 'Решетка-дробилка РД-300',
       description: 'Компактная установка для небольших очистных сооружений с функцией измельчения крупных включений',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/eee95187-175e-4958-9f16-6e8b91acd8d5.jpg',
       specs: {
         capacity: 'До 300 м³/сут',
         grindingSize: 'До 6 мм',
@@ -24,6 +25,7 @@ const Grinders = () => {
     {
       name: 'Решетка-дробилка РД-800',
       description: 'Среднепроизводительная система для промышленных объектов с высокой степенью измельчения',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/eee95187-175e-4958-9f16-6e8b91acd8d5.jpg',
       specs: {
         capacity: 'До 800 м³/сут',
         grindingSize: 'До 8 мм',
@@ -34,6 +36,7 @@ const Grinders = () => {
     {
       name: 'Решетка-дробилка РД-1500',
       description: 'Высокопроизводительная установка для крупных очистных комплексов и промышленных предприятий',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/eee95187-175e-4958-9f16-6e8b91acd8d5.jpg',
       specs: {
         capacity: 'До 1500 м³/сут',
         grindingSize: 'До 10 мм',
@@ -44,6 +47,7 @@ const Grinders = () => {
     {
       name: 'Решетка-дробилка РД-3000 Pro',
       description: 'Профессиональное решение для крупнейших очистных станций с системой самодиагностики',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/eee95187-175e-4958-9f16-6e8b91acd8d5.jpg',
       specs: {
         capacity: 'До 3000 м³/сут',
         grindingSize: 'До 12 мм',
@@ -85,7 +89,14 @@ const Grinders = () => {
 
           <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {models.map((model, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-video w-full bg-muted overflow-hidden">
+                  <img 
+                    src={model.image} 
+                    alt={model.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl">{model.name}</CardTitle>
                   <CardDescription className="text-base">{model.description}</CardDescription>

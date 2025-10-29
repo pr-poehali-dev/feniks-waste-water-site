@@ -14,6 +14,7 @@ const AuxiliaryEquipment = () => {
     {
       name: 'Система автоматизации САУ-01',
       description: 'Комплексная система управления очистными сооружениями с удаленным мониторингом',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/64ff0131-4c6f-4b92-8e8e-3e5c2751dc7f.jpg',
       specs: {
         features: 'ПЛК, панель оператора',
         monitoring: 'Web-интерфейс, мобильное приложение',
@@ -24,6 +25,7 @@ const AuxiliaryEquipment = () => {
     {
       name: 'Насосная станция НС-50',
       description: 'Погружные насосы для перекачки сточных вод с защитой от перегрузок',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/64ff0131-4c6f-4b92-8e8e-3e5c2751dc7f.jpg',
       specs: {
         flow: '50-200 м³/ч',
         head: '10-30 метров',
@@ -34,6 +36,7 @@ const AuxiliaryEquipment = () => {
     {
       name: 'Компрессорная установка КУ-100',
       description: 'Воздуходувка для аэрации и интенсификации биологических процессов очистки',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/64ff0131-4c6f-4b92-8e8e-3e5c2751dc7f.jpg',
       specs: {
         capacity: '100-500 м³/ч',
         pressure: '0.5-1.2 бар',
@@ -44,6 +47,7 @@ const AuxiliaryEquipment = () => {
     {
       name: 'Дозирующая станция ДС-20',
       description: 'Автоматическая станция дозирования реагентов с емкостями и насосами-дозаторами',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/64ff0131-4c6f-4b92-8e8e-3e5c2751dc7f.jpg',
       specs: {
         capacity: '20-200 л/ч',
         tanks: '2-4 емкости по 500л',
@@ -54,6 +58,7 @@ const AuxiliaryEquipment = () => {
     {
       name: 'КИПиА комплект К-01',
       description: 'Контрольно-измерительные приборы для мониторинга параметров очистки',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/64ff0131-4c6f-4b92-8e8e-3e5c2751dc7f.jpg',
       specs: {
         sensors: 'pH, DO, TSS, температура',
         transmitters: 'Аналоговые 4-20мА',
@@ -105,7 +110,14 @@ const AuxiliaryEquipment = () => {
 
           <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {models.map((model, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-video w-full bg-muted overflow-hidden">
+                  <img 
+                    src={model.image} 
+                    alt={model.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl">{model.name}</CardTitle>
                   <CardDescription className="text-base">{model.description}</CardDescription>

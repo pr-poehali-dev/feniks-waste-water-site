@@ -14,6 +14,7 @@ const Settlers = () => {
     {
       name: 'Илоскреб радиальный ИР-24',
       description: 'Радиальный илоскреб для круглых отстойников диаметром до 24 метров с центральным приводом',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/73788dcd-7ff0-494a-8cd0-445f13cf2c49.jpg',
       specs: {
         diameter: '12-24 метра',
         depth: '3-5 метров',
@@ -24,6 +25,7 @@ const Settlers = () => {
     {
       name: 'Скребковый механизм СМ-40',
       description: 'Продольный скребковый механизм для прямоугольных отстойников длиной до 40 метров',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/73788dcd-7ff0-494a-8cd0-445f13cf2c49.jpg',
       specs: {
         length: '20-40 метров',
         width: '4-8 метров',
@@ -34,6 +36,7 @@ const Settlers = () => {
     {
       name: 'Жироуловитель ЖУ-10',
       description: 'Промышленный жироуловитель для предприятий общепита и пищевых производств',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/73788dcd-7ff0-494a-8cd0-445f13cf2c49.jpg',
       specs: {
         capacity: '10 м³/час',
         volume: '3 м³',
@@ -44,6 +47,7 @@ const Settlers = () => {
     {
       name: 'Нефтеловушка НЛ-20',
       description: 'Коалесцентная нефтеловушка для автомоек, АЗС и промышленных объектов',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/73788dcd-7ff0-494a-8cd0-445f13cf2c49.jpg',
       specs: {
         capacity: '20 л/сек',
         volume: '5 м³',
@@ -54,6 +58,7 @@ const Settlers = () => {
     {
       name: 'Тонкослойный модуль ТМ-50',
       description: 'Тонкослойный модуль для интенсификации процесса отстаивания и осветления воды',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/73788dcd-7ff0-494a-8cd0-445f13cf2c49.jpg',
       specs: {
         area: '50 м² осаждения',
         angle: '60 градусов',
@@ -105,7 +110,14 @@ const Settlers = () => {
 
           <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {models.map((model, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-video w-full bg-muted overflow-hidden">
+                  <img 
+                    src={model.image} 
+                    alt={model.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl">{model.name}</CardTitle>
                   <CardDescription className="text-base">{model.description}</CardDescription>

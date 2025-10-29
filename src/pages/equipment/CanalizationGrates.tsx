@@ -14,6 +14,7 @@ const CanalizationGrates = () => {
     {
       name: 'Решетка механическая РМ-1',
       description: 'Компактная механическая решетка для малых очистных сооружений производительностью до 100 м³/сут',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/5f28f8f9-e593-4672-ae66-163f665b0ba2.jpg',
       specs: {
         width: '500-800 мм',
         cellSize: '10-20 мм',
@@ -24,6 +25,7 @@ const CanalizationGrates = () => {
     {
       name: 'Решетка автоматическая РА-500',
       description: 'Автоматическая решетка с механизмом очистки для средних очистных станций до 500 м³/сут',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/5f28f8f9-e593-4672-ae66-163f665b0ba2.jpg',
       specs: {
         width: '500-1200 мм',
         cellSize: '6-16 мм',
@@ -34,6 +36,7 @@ const CanalizationGrates = () => {
     {
       name: 'Решетка ступенчатая РС-1000',
       description: 'Высокопроизводительная ступенчатая решетка для крупных промышленных объектов',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/5f28f8f9-e593-4672-ae66-163f665b0ba2.jpg',
       specs: {
         width: '1000-2000 мм',
         cellSize: '3-10 мм',
@@ -44,6 +47,7 @@ const CanalizationGrates = () => {
     {
       name: 'Решетка барабанная РБ-300',
       description: 'Барабанная вращающаяся решетка для глубокой очистки от мелких включений',
+      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/5f28f8f9-e593-4672-ae66-163f665b0ba2.jpg',
       specs: {
         width: '300-800 мм',
         cellSize: '1-6 мм',
@@ -85,7 +89,14 @@ const CanalizationGrates = () => {
 
           <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {models.map((model, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-video w-full bg-muted overflow-hidden">
+                  <img 
+                    src={model.image} 
+                    alt={model.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl">{model.name}</CardTitle>
                   <CardDescription className="text-base">{model.description}</CardDescription>
