@@ -228,13 +228,30 @@ const Index = () => {
                 icon: 'Container',
                 path: '/equipment/settlers'
               }
-            ].map((item, index) => (
-              <Card key={index} onClick={() => navigate(item.path)} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+            ].map((item, index) => {
+              const images = [
+                'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/d8a2896d-2c80-42ef-bd08-1ca7aed43aa9.jpg',
+                'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/918adb41-01bc-4e8e-8daf-8a0b066ab8e1.jpg',
+                'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/8f7bbaf4-d49d-4901-8ca7-a2964f54be3a.jpg',
+                'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/b27cd232-e828-4de1-b51b-78ee4f9a0382.jpg',
+                'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/89ff64c1-93de-4e25-b92f-e37915f2d504.jpg'
+              ];
+              return (
+              <Card key={index} onClick={() => navigate(item.path)} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer overflow-hidden">
+                <div className="aspect-video w-full overflow-hidden bg-muted">
+                  <img 
+                    src={images[index]} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
                 <CardHeader>
-                  <div className="w-16 h-16 mb-4 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Icon name={item.icon} size={32} className="text-white" />
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Icon name={item.icon} size={24} className="text-white" />
+                    </div>
+                    <CardTitle className="text-xl">{item.title}</CardTitle>
                   </div>
-                  <CardTitle className="text-2xl mb-2">{item.title}</CardTitle>
                   <CardDescription className="text-base">{item.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -248,7 +265,7 @@ const Index = () => {
                   </ul>
                 </CardContent>
               </Card>
-            ))}
+            );})}
           </div>
         </div>
       </section>
