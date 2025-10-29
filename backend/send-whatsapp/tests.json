@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "name": "Test WhatsApp URL generation",
+      "method": "POST",
+      "body": {
+        "name": "Иван Иванов",
+        "phone": "+79991234567",
+        "company": "ООО Тест",
+        "message": "Интересует оборудование",
+        "equipment": "Решетка механическая РМ-1"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "whatsappUrl": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test OPTIONS for CORS",
+      "method": "OPTIONS",
+      "expectedStatus": 200
+    }
+  ]
+}

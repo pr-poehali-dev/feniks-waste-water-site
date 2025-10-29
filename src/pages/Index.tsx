@@ -11,6 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import funcUrls from '../backend/func2url.json';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -21,6 +22,9 @@ const Index = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const equipmentCategories = [
     { name: 'Канализационные решетки', id: 'category-1', path: '/equipment/canalization-grates' },
     { name: 'Решетки-Дробилки', id: 'category-2', path: '/equipment/grinders' },
@@ -29,9 +33,58 @@ const Index = () => {
     { name: 'Оборудование для отстойников', id: 'category-5', path: '/equipment/settlers' }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    try {
+      const requestData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: '',
+        message: formData.message,
+        equipment: ''
+      };
+
+      const emailPromise = fetch(funcUrls['send-email'], {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestData)
+      });
+
+      const whatsappPromise = fetch(funcUrls['send-whatsapp'], {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestData)
+      });
+
+      const [emailResponse, whatsappResponse] = await Promise.all([emailPromise, whatsappPromise]);
+
+      if (whatsappResponse.ok) {
+        const whatsappData = await whatsappResponse.json();
+        if (whatsappData.whatsappUrl) {
+          window.open(whatsappData.whatsappUrl, '_blank');
+        }
+      }
+
+      setIsSubmitting(false);
+      setIsSuccess(true);
+
+      setTimeout(() => {
+        setIsSuccess(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      }, 3000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
+      alert('Ошибка при отправке заявки. Попробуйте еще раз.');
+    }
   };
 
   const scrollToSection = (id: string) => {
@@ -231,9 +284,12 @@ const Index = () => {
                       <Icon name="Phone" size={24} className="text-accent" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-1">Телефон</h3>
-                      <p className="text-muted-foreground">+7 (495) 123-45-67</p>
-                      <p className="text-muted-foreground">+7 (800) 555-35-35</p>
+                      <h3 className="font-semibold mb-1">Телефон / WhatsApp</h3>
+                      <a href="tel:+79202243445" className="text-muted-foreground hover:text-primary transition-colors block">+7 (920) 224-34-45</a>
+                      <a href="https://wa.me/79202243445" target="_blank" rel="noopener noreferrer" className="text-sm text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1 mt-1">
+                        <Icon name="MessageCircle" size={14} />
+                        Написать в WhatsApp
+                      </a>
                     </div>
                   </div>
 
@@ -243,8 +299,7 @@ const Index = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-muted-foreground">info@feniks-water.ru</p>
-                      <p className="text-muted-foreground">sales@feniks-water.ru</p>
+                      <a href="mailto:zakaz-phenix@mail.ru" className="text-muted-foreground hover:text-primary transition-colors block">zakaz-phenix@mail.ru</a>
                     </div>
                   </div>
 
@@ -312,9 +367,25 @@ const Index = () => {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full" size="lg">
-                    Отправить заявку
-                  </Button>
+                  {isSuccess ? (
+                    <div className="text-center py-4">
+                      <div className="inline-flex items-center gap-2 text-green-600 font-semibold">
+                        <Icon name="Check" size={20} />
+                        Заявка отправлена!
+                      </div>
+                    </div>
+                  ) : (
+                    <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                        <>
+                          <Icon name="Loader2" size={16} className="mr-2 animate-spin" />
+                          Отправка...
+                        </>
+                      ) : (
+                        'Отправить заявку'
+                      )}
+                    </Button>
+                  )}
                 </form>
               </CardContent>
             </Card>
@@ -361,9 +432,18 @@ const Index = () => {
             <div>
               <h3 className="font-bold text-lg mb-4">Контакты</h3>
               <ul className="space-y-2 text-white/80">
-                <li>+7 (495) 123-45-67</li>
-                <li>info@feniks-water.ru</li>
-                <li>г. Москва, ул. Промышленная, д. 15</li>
+                <li>
+                  <a href="tel:+79202243445" className="hover:text-white transition-colors">+7 (920) 224-34-45</a>
+                </li>
+                <li>
+                  <a href="mailto:zakaz-phenix@mail.ru" className="hover:text-white transition-colors">zakaz-phenix@mail.ru</a>
+                </li>
+                <li>
+                  <a href="https://wa.me/79202243445" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors inline-flex items-center gap-1">
+                    <Icon name="MessageCircle" size={14} />
+                    WhatsApp
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

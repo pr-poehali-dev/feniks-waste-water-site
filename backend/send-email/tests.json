@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "name": "Test email sending with full data",
+      "method": "POST",
+      "body": {
+        "name": "Иван Иванов",
+        "email": "test@example.com",
+        "phone": "+79202243445",
+        "company": "ООО Тест",
+        "message": "Интересует оборудование для очистки",
+        "equipment": "Решетка механическая РМ-1"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test OPTIONS for CORS",
+      "method": "OPTIONS",
+      "expectedStatus": 200
+    }
+  ]
+}

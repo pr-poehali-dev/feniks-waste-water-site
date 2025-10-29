@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
+import funcUrls from '../../backend/func2url.json';
 
 interface QuoteRequestModalProps {
   isOpen: boolean;
@@ -29,23 +30,57 @@ export default function QuoteRequestModal({ isOpen, onClose, equipmentName }: Qu
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const requestData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        message: formData.message,
+        equipment: equipmentName || ''
+      };
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    setTimeout(() => {
-      setIsSuccess(false);
-      onClose();
-      setFormData({
-        name: '',
-        company: '',
-        phone: '',
-        email: '',
-        message: '',
-        file: null
+      const emailPromise = fetch(funcUrls['send-email'], {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestData)
       });
-    }, 2000);
+
+      const whatsappPromise = fetch(funcUrls['send-whatsapp'], {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestData)
+      });
+
+      const [emailResponse, whatsappResponse] = await Promise.all([emailPromise, whatsappPromise]);
+
+      if (whatsappResponse.ok) {
+        const whatsappData = await whatsappResponse.json();
+        if (whatsappData.whatsappUrl) {
+          window.open(whatsappData.whatsappUrl, '_blank');
+        }
+      }
+
+      setIsSubmitting(false);
+      setIsSuccess(true);
+
+      setTimeout(() => {
+        setIsSuccess(false);
+        onClose();
+        setFormData({
+          name: '',
+          company: '',
+          phone: '',
+          email: '',
+          message: '',
+          file: null
+        });
+      }, 2000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
+      alert('Ошибка при отправке заявки. Попробуйте еще раз.');
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,7 +117,7 @@ export default function QuoteRequestModal({ isOpen, onClose, equipmentName }: Qu
               <Icon name="Check" size={40} className="text-green-600" />
             </div>
             <h3 className="text-2xl font-bold text-secondary mb-2">Заявка отправлена!</h3>
-            <p className="text-muted-foreground">Наш менеджер свяжется с вами в ближайшее время</p>
+            <p className="text-muted-foreground">Заявка отправлена на email и в WhatsApp. Наш менеджер свяжется с вами в ближайшее время</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 space-y-6">
