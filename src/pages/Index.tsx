@@ -11,6 +11,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import { FUNCTION_URLS } from '@/config/functions';
 
 const Index = () => {
@@ -24,6 +29,7 @@ const Index = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const equipmentCategories = [
     { name: 'Канализационные решетки', id: 'category-1', path: '/equipment/canalization-grates' },
@@ -131,6 +137,45 @@ const Index = () => {
           <Button onClick={() => scrollToSection('contacts')} className="hidden md:flex">
             Связаться с нами
           </Button>
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Icon name="Menu" size={24} />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <nav className="flex flex-col gap-6 mt-8">
+                <button 
+                  onClick={() => { scrollToSection('home'); setIsMobileMenuOpen(false); }} 
+                  className="text-left text-lg font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Главная
+                </button>
+                <div className="flex flex-col gap-3">
+                  <span className="text-lg font-medium text-foreground">Каталог оборудования</span>
+                  {equipmentCategories.map((category) => (
+                    <button
+                      key={category.id}
+                      onClick={() => { navigate(category.path); setIsMobileMenuOpen(false); }}
+                      className="text-left pl-4 py-2 text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+                    >
+                      <Icon name="ArrowRight" size={16} className="text-primary" />
+                      {category.name}
+                    </button>
+                  ))}
+                </div>
+                <button 
+                  onClick={() => { scrollToSection('contacts'); setIsMobileMenuOpen(false); }} 
+                  className="text-left text-lg font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Контакты
+                </button>
+                <Button onClick={() => { scrollToSection('contacts'); setIsMobileMenuOpen(false); }} className="mt-4">
+                  Связаться с нами
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </nav>
 
