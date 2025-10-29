@@ -47,7 +47,7 @@ const MainNav = () => {
           <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
             <Icon name="Droplets" className="text-primary-foreground" size={24} />
           </div>
-          <span className="font-bold text-xl">Техносфера</span>
+          <span className="font-bold text-xl">ФЕНИКС</span>
         </button>
 
         <div className="hidden md:flex items-center gap-6">
