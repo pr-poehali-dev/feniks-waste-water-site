@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
+import QuoteRequestModal from '@/components/QuoteRequestModal';
 
 const WaterTreatment = () => {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedEquipment, setSelectedEquipment] = useState('');
 
   const models = [
     {
@@ -99,7 +103,15 @@ const WaterTreatment = () => {
                     ))}
                   </div>
                   <div className="pt-4 border-t">
-                    <Button className="w-full">Запросить КП</Button>
+                    <Button 
+                      className="w-full"
+                      onClick={() => {
+                        setSelectedEquipment(model.name);
+                        setIsModalOpen(true);
+                      }}
+                    >
+                      Запросить КП
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -175,6 +187,12 @@ const WaterTreatment = () => {
           </Card>
         </div>
       </section>
+
+      <QuoteRequestModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        equipmentName={selectedEquipment}
+      />
     </div>
   );
 };
