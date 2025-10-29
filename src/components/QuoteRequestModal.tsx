@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
-import funcUrls from '../../backend/func2url.json';
+import { FUNCTION_URLS } from '@/config/functions';
 
 interface QuoteRequestModalProps {
   isOpen: boolean;
@@ -40,13 +40,13 @@ export default function QuoteRequestModal({ isOpen, onClose, equipmentName }: Qu
         equipment: equipmentName || ''
       };
 
-      const emailPromise = fetch(funcUrls['send-email'], {
+      const emailPromise = fetch(FUNCTION_URLS['send-email'], {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestData)
       });
 
-      const whatsappPromise = fetch(funcUrls['send-whatsapp'], {
+      const whatsappPromise = fetch(FUNCTION_URLS['send-whatsapp'], {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestData)

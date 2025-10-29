@@ -1,0 +1,4 @@
+export const FUNCTION_URLS = {
+  'send-email': 'https://functions.poehali.dev/63be9a83-6721-4608-8780-637f0bac265a',
+  'send-whatsapp': 'https://functions.poehali.dev/5b7de6b5-a1be-482b-b0b8-966787cad671'
+} as const;

@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import funcUrls from '../backend/func2url.json';
+import { FUNCTION_URLS } from '@/config/functions';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -47,13 +47,13 @@ const Index = () => {
         equipment: ''
       };
 
-      const emailPromise = fetch(funcUrls['send-email'], {
+      const emailPromise = fetch(FUNCTION_URLS['send-email'], {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestData)
       });
 
-      const whatsappPromise = fetch(funcUrls['send-whatsapp'], {
+      const whatsappPromise = fetch(FUNCTION_URLS['send-whatsapp'], {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestData)
