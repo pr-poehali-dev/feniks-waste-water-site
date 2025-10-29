@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -12,6 +13,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,11 +22,11 @@ const Index = () => {
   });
 
   const equipmentCategories = [
-    { name: 'Канализационные решетки', id: 'category-1' },
-    { name: 'Решетки-Дробилки', id: 'category-2' },
-    { name: 'Вспомогательное оборудование', id: 'category-3' },
-    { name: 'Доочистка сточных вод', id: 'category-4' },
-    { name: 'Оборудование для отстойников', id: 'category-5' }
+    { name: 'Канализационные решетки', id: 'category-1', path: '/equipment/canalization-grates' },
+    { name: 'Решетки-Дробилки', id: 'category-2', path: '/equipment/grinders' },
+    { name: 'Вспомогательное оборудование', id: 'category-3', path: '/equipment/auxiliary' },
+    { name: 'Доочистка сточных вод', id: 'category-4', path: '/equipment/water-treatment' },
+    { name: 'Оборудование для отстойников', id: 'category-5', path: '/equipment/settlers' }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -60,7 +62,7 @@ const Index = () => {
                 {equipmentCategories.map((category) => (
                   <DropdownMenuItem
                     key={category.id}
-                    onClick={() => scrollToSection('equipment')}
+                    onClick={() => navigate(category.path)}
                     className="cursor-pointer py-3"
                   >
                     <Icon name="ArrowRight" size={16} className="mr-2 text-primary" />
@@ -142,34 +144,39 @@ const Index = () => {
                 title: 'Канализационные решетки',
                 description: 'Механические и автоматические решетки для задержания крупных загрязнений на входе в очистные сооружения. Надежная защита насосного и технологического оборудования.',
                 features: ['Различные размеры ячеек', 'Автоматическая очистка', 'Коррозионностойкие материалы'],
-                icon: 'Grid3x3'
+                icon: 'Grid3x3',
+                path: '/equipment/canalization-grates'
               },
               {
                 title: 'Решетки-Дробилки',
                 description: 'Комбинированное оборудование для измельчения и удаления крупных включений из сточных вод. Сокращает объем отходов и упрощает дальнейшую переработку.',
                 features: ['Измельчение до 6-10 мм', 'Энергоэффективный привод', 'Минимальное обслуживание'],
-                icon: 'Package'
+                icon: 'Package',
+                path: '/equipment/grinders'
               },
               {
                 title: 'Вспомогательное оборудование',
                 description: 'Полный спектр вспомогательного оборудования: насосы, компрессоры, дозаторы, системы автоматики и контроля для обеспечения бесперебойной работы очистных сооружений.',
                 features: ['Системы автоматизации', 'КИПиА и датчики', 'Запасные части'],
-                icon: 'Wrench'
+                icon: 'Wrench',
+                path: '/equipment/auxiliary'
               },
               {
                 title: 'Доочистка сточных вод',
                 description: 'Оборудование для финишной доочистки: УФ-установки, мембранные модули, сорбционные фильтры. Обеспечивает соответствие самым строгим экологическим нормам.',
                 features: ['УФ-обеззараживание', 'Мембранная фильтрация', 'Сорбционные системы'],
-                icon: 'Sparkles'
+                icon: 'Sparkles',
+                path: '/equipment/water-treatment'
               },
               {
                 title: 'Оборудование для отстойников',
                 description: 'Илоскребы, жироуловители, нефтеловушки и системы удаления осадка. Эффективная работа отстойников и их надежная эксплуатация.',
                 features: ['Радиальные илоскребы', 'Скребковые механизмы', 'Системы сбора плавающих веществ'],
-                icon: 'Container'
+                icon: 'Container',
+                path: '/equipment/settlers'
               }
             ].map((item, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <Card key={index} onClick={() => navigate(item.path)} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
                 <CardHeader>
                   <div className="w-16 h-16 mb-4 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Icon name={item.icon} size={32} className="text-white" />
