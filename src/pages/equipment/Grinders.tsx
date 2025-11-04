@@ -49,7 +49,7 @@ const Grinders = () => {
     {
       name: 'Решетка-дробилка РД-3000 Pro',
       description: 'Профессиональное решение для крупнейших очистных станций с системой самодиагностики',
-      image: 'https://cdn.poehali.dev/files/33ede0de-1640-42af-bcc1-1c89e5bcbfb8.png',
+      image: 'https://cdn.poehali.dev/files/cc60e260-59f5-49c8-b702-91659d2ee26d.png',
       specs: {
         capacity: 'До 3000 м³/сут',
         grindingSize: 'До 12 мм',
