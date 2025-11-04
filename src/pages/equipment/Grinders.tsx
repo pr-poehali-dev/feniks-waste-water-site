@@ -79,11 +79,11 @@ const Grinders = () => {
           <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {models.map((model, index) => (
               <Card key={index} className="hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div className="aspect-video w-full bg-muted overflow-hidden">
+                <div className="aspect-square w-full bg-white overflow-hidden flex items-center justify-center p-8">
                   <EditableImage
                     src={model.image} 
                     alt={model.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <CardHeader>
