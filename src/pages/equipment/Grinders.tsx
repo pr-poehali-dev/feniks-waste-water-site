@@ -16,7 +16,7 @@ const Grinders = () => {
     {
       name: 'Решетка-дробилка РД-300',
       description: 'Компактная установка для небольших очистных сооружений с функцией измельчения крупных включений',
-      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/eee95187-175e-4958-9f16-6e8b91acd8d5.jpg',
+      image: 'https://cdn.poehali.dev/files/3ef50bd1-f417-446f-abdf-0fba0f8302f9.png',
       specs: {
         capacity: 'До 300 м³/сут',
         grindingSize: 'До 6 мм',
