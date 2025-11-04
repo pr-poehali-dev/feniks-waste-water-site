@@ -15,7 +15,7 @@ const CanalizationGrates = () => {
     {
       name: 'Решетка грабельная',
       description: 'Компактная механическая решетка для малых очистных сооружений производительностью до 100 м³/сут',
-      image: 'https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/5f28f8f9-e593-4672-ae66-163f665b0ba2.jpg',
+      image: 'https://cdn.poehali.dev/files/70fd9fb5-aa0f-4cb0-8d3b-1500e24f7530.png',
       specs: {
         width: '500-800 мм',
         cellSize: '10-20 мм',
