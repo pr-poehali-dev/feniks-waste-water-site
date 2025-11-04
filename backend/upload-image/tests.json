@@ -1,0 +1,22 @@
+{
+  "tests": [
+    {
+      "name": "Upload image successfully",
+      "method": "POST",
+      "body": {
+        "image": "data:image/jpeg;base64,/9j/4AAQSkZJRg"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "url": "string",
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Handle OPTIONS request",
+      "method": "OPTIONS",
+      "expectedStatus": 200
+    }
+  ]
+}
