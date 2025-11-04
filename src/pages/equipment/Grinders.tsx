@@ -5,6 +5,7 @@ import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
 import QuoteRequestModal from '@/components/QuoteRequestModal';
 import MainNav from '@/components/MainNav';
+import EditableImage from '@/components/EditableImage';
 
 const Grinders = () => {
   const navigate = useNavigate();
@@ -79,7 +80,7 @@ const Grinders = () => {
             {models.map((model, index) => (
               <Card key={index} className="hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="aspect-video w-full bg-muted overflow-hidden">
-                  <img 
+                  <EditableImage
                     src={model.image} 
                     alt={model.name}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
