@@ -200,7 +200,7 @@ const Index = () => {
                 </div>
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#1A5E4F] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                       <Icon name={item.icon} size={24} className="text-white" />
                     </div>
                     <CardTitle className="text-xl">{item.title}</CardTitle>
