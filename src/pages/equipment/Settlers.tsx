@@ -86,7 +86,7 @@ const Settlers = () => {
       <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-background via-muted to-background">
         <div className="container mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
+            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#D4AF37] to-[#1A5E4F] rounded-2xl flex items-center justify-center shadow-lg">
               <Icon name="Container" size={40} className="text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-secondary">Оборудование для отстойников</h1>
