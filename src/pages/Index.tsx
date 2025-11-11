@@ -85,13 +85,6 @@ const Index = () => {
 
       <section id="home" className="pt-32 pb-20 px-4 bg-gradient-to-br from-background via-muted to-background">
         <div className="container mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
-            <img 
-              src="https://cdn.poehali.dev/files/bda8c1ca-731c-4b90-b5df-619bc17634b0.png" 
-              alt="ФЕНИКС" 
-              className="h-24 w-auto mx-auto mb-4"
-            />
-          </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-secondary leading-tight">
