@@ -45,11 +45,11 @@ const MainNav = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <button onClick={() => navigate('/')} className="flex items-center gap-3">
           <img 
-            src="https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/ae81166e-57a9-4a27-8900-d0089abe45fd.jpg" 
+            src="https://cdn.poehali.dev/files/bda8c1ca-731c-4b90-b5df-619bc17634b0.png" 
             alt="ФЕНИКС" 
-            className="h-12 w-12 object-contain"
+            className="h-16 w-auto object-contain"
           />
-          <span className="font-bold text-xl">ФЕНИКС</span>
+          <span className="font-bold text-2xl">ФЕНИКС</span>
         </button>
 
         <div className="hidden md:flex items-center gap-6">
