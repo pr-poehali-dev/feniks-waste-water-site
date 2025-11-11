@@ -45,9 +45,9 @@ const MainNav = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <button onClick={() => navigate('/')} className="flex items-center gap-3">
           <img 
-            src="https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/fa4407d8-e6b9-4680-b8e1-7edc5cedefea.jpg" 
+            src="https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/ae81166e-57a9-4a27-8900-d0089abe45fd.jpg" 
             alt="ФЕНИКС" 
-            className="h-10 w-auto"
+            className="h-12 w-12 object-contain"
           />
           <span className="font-bold text-xl">ФЕНИКС</span>
         </button>
