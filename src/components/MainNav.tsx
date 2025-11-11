@@ -43,10 +43,12 @@ const MainNav = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <button onClick={() => navigate('/')} className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <Icon name="Droplets" className="text-primary-foreground" size={24} />
-          </div>
+        <button onClick={() => navigate('/')} className="flex items-center gap-3">
+          <img 
+            src="https://cdn.poehali.dev/projects/2b30282d-3b0f-4393-ab9a-de0d916d4ff4/files/fa4407d8-e6b9-4680-b8e1-7edc5cedefea.jpg" 
+            alt="ФЕНИКС" 
+            className="h-10 w-auto"
+          />
           <span className="font-bold text-xl">ФЕНИКС</span>
         </button>
 
