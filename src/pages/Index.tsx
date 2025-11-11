@@ -104,11 +104,11 @@ const Index = () => {
               </div>
             </div>
             <div className="relative animate-scale-in">
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+              <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 flex items-center justify-center p-8 shadow-2xl">
                 <img 
                   src="https://cdn.poehali.dev/files/d5415757-2439-4280-8a58-3f988dda5c22.png" 
                   alt="Водоочистное оборудование" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain drop-shadow-2xl"
                 />
               </div>
             </div>
