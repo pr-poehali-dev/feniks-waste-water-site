@@ -85,6 +85,13 @@ const Index = () => {
 
       <section id="home" className="pt-32 pb-20 px-4 bg-gradient-to-br from-background via-muted to-background">
         <div className="container mx-auto">
+          <div className="text-center mb-12 animate-fade-in">
+            <img 
+              src="https://cdn.poehali.dev/files/bda8c1ca-731c-4b90-b5df-619bc17634b0.png" 
+              alt="ФЕНИКС" 
+              className="h-24 w-auto mx-auto mb-4"
+            />
+          </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-secondary leading-tight">
@@ -378,11 +385,13 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-                  <Icon name="Droplets" size={24} className="text-white" />
-                </div>
-                <span className="text-2xl font-bold">ФЕНИКС</span>
+              <div className="mb-4">
+                <img 
+                  src="https://cdn.poehali.dev/files/bda8c1ca-731c-4b90-b5df-619bc17634b0.png" 
+                  alt="ФЕНИКС" 
+                  className="h-16 w-auto mb-4"
+                />
+                <span className="text-2xl font-bold block">ФЕНИКС</span>
               </div>
               <p className="text-white/80">
                 Профессиональные решения для очистки сточных вод
